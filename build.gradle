@@ -1,0 +1,31 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+	dependencies {
+
+		// NOTE - this is referencing a local variable that you must set in your gradle.properties
+		// in the top level folder.
+		//
+		// Example:
+		//
+		// project.ext {
+		//    localBuildTools = com.android.tools.build:gradle:0.14.1
+		// }
+		//
+		if (project.hasProperty('localBuildTools')) {
+			classpath project.ext.localBuildTools
+		} else {
+			// Fallback to newest build tools if property not set
+			classpath 'com.android.tools.build:gradle:1.0.0'
+		}
+	}
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}

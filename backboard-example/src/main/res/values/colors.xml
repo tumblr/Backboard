@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<color name="debug_green">#99cc00</color>
+	<color name="debug_red">#ff4444</color>
+	<color name="debug_purple">#aa66cc</color>
+	<color name="debug_orange">#ffbb33</color>
+	<color name="debug_blue">#00ddff</color>
+	<color name="debug_gray">#888888</color>
+	<color name="debug_navy">#32506d</color>
+
+	<color name="white">#ffffff</color>
+
+	<array name="bugs">
+		<item>@color/debug_green</item>
+		<item>@color/debug_red</item>
+		<item>@color/debug_purple</item>
+		<item>@color/debug_orange</item>
+		<item>@color/debug_blue</item>
+		<item>@color/debug_gray</item>
+	</array>
+
+	<array name="circles">
+		<item>@drawable/circle_green</item>
+		<item>@drawable/circle_red</item>
+		<item>@drawable/circle_purple</item>
+		<item>@drawable/circle_orange</item>
+		<item>@drawable/circle_blue</item>
+		<item>@drawable/circle_gray</item>
+	</array>
+
+</resources>

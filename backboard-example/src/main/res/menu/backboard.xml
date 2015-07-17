@@ -1,0 +1,54 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.tumblr.backboard.example.BackboardActivity" >
+
+    <item android:id="@+id/action_move"
+        android:title="@string/action_move"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
+    <item android:id="@+id/action_snap"
+        android:title="@string/action_snap"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
+	<item android:id="@+id/action_scale"
+		android:title="@string/action_scale"
+		android:orderInCategory="100"
+		android:showAsAction="never" />
+
+	<item android:id="@+id/action_bloom"
+		android:title="@string/action_bloom"
+		android:orderInCategory="100"
+		android:showAsAction="never" />
+
+	<item android:id="@+id/action_flower"
+		android:title="@string/action_flower"
+		android:orderInCategory="100"
+		android:showAsAction="never" />
+
+	<item android:id="@+id/action_appear"
+		android:title="@string/action_appear"
+		android:orderInCategory="100"
+		android:showAsAction="never" />
+
+	<item android:id="@+id/action_explosion"
+		android:title="@string/action_explosion"
+		android:orderInCategory="100"
+		android:showAsAction="never" />
+
+	<item android:id="@+id/action_follow"
+		android:title="@string/action_follow"
+		android:orderInCategory="100"
+		android:showAsAction="never" />
+
+	<item android:id="@+id/action_zoom"
+		android:title="@string/action_zoom"
+		android:orderInCategory="100"
+		android:showAsAction="never" />
+
+	<item android:id="@+id/action_constrained"
+		android:title="@string/action_constrained"
+		android:orderInCategory="100"
+		android:showAsAction="never" />
+</menu>

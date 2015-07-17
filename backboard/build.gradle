@@ -1,0 +1,55 @@
+apply plugin: 'com.android.library'
+apply plugin: 'checkstyle'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.1"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 21
+        versionCode 100
+        versionName "0.1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    provided 'com.facebook.rebound:rebound:0.3.8'
+    compile 'com.android.support:support-annotations:22.2.0'
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+checkstyle {
+    toolVersion = "6.7"
+}
+
+task checkstyle(type: Checkstyle) {
+    configFile = rootProject.file('backboard/checkstyle.xml')
+
+    source 'src/main/java'
+
+    include '**/*.java'
+
+    exclude '**/gen/**'
+
+    def configProps = ['proj.module.dir': projectDir.absolutePath]
+    configProperties configProps
+
+    // empty classpath
+    classpath = files()
+}
+
+apply plugin: 'maven'
+
+def coreAarFile = file('build/backboard.aar')
+
+artifacts {
+	archives coreAarFile
+}
