@@ -1,7 +1,6 @@
 ![the backboard icon](backboard-example/src/main/res/mipmap-xxhdpi/ic_launcher.png?raw=true)
 
-backboard
-=========
+# backboard
 
 A motion-driven animation framework for Android.
 
@@ -9,21 +8,22 @@ A motion-driven animation framework for Android.
 
 `backboard-example` is an Android app with a few demos of animations made possible by `backboard`.
 
-why?
-----
+## Table of Contents
 
-Because Android deserves an animation framework that can create more free-form animations while making existing animations even easier.
+* [Usage](#usage)
+* [Getting Started](#getting-started)
+    * [Performers](#performers)
+    * [Imitators](#imitators)
+    * [Actors](#actors)
+* [Dependencies](#dependencies)
+* [Contact](#contact)
+* [License](#license)
 
-usage
------
+## Usage
+
 Add `'com.facebook.rebound:rebound:0.3.8'` and `com.tumblr.backboard:backboard:+` to your dependencies in `build.gradle`.
 
-tl;dr
------
-_user moves finger_ &#65515; `MotionImitator` &#65515; `Spring` &#65515; `Performer` &#65515; _view moves_
-
-how?
-----
+## Getting Started
 
 Backboard is a framework on top of [rebound](http://facebook.github.io/rebound/) that manages how `Springs` are used and simplifies the
 most common use cases:
@@ -34,6 +34,7 @@ most common use cases:
 In addition, an `Actor` wraps the above objects and provides a simple interface for mapping touch motion to a view's position - dragging.
 
 ### Performers
+
 A `Performer` takes the current value of a `Spring` and sets it as the value of a view property.
 ```Java
 Spring bounce = SpringSystem.create().createSpring();
@@ -46,6 +47,7 @@ Spring bounce = SpringSystem.create().createSpring().addListener(new Performer(v
 ```
 
 ### Imitators
+
 An `Imitator` constantly perturbs the `Spring` it is attached to. This perturbation can originate a variety of sources:
 
 1. A `MotionEvent`, where the `Spring` can change based on the action (`ACTION_DOWN`, `ACTION_UP`), or imitate a property (`x`, `y`, etc.). These are called `EventImitators`.
@@ -53,6 +55,7 @@ An `Imitator` constantly perturbs the `Spring` it is attached to. This perturbat
  
 
 #### Imitating Touch
+
 An `EventImitator` primarily operates with `OnTouchListeners`. The simplest example is a `ToggleImitator`, which toggles between two different values depending on the touch state:
 ```Java
 view.setOnTouchListener(new ToggleImitator(spring, 0, 1));
@@ -60,15 +63,18 @@ view.setOnTouchListener(new ToggleImitator(spring, 0, 1));
 when the user touches the view, a value of `1` is set on the spring, and when the user releases, a value of `0` is set.
 
 #### Imitating Motion
+
 A `MotionImitator` is a special type of `EventImitator` that maps _x_ and _y_ movement to a spring. This is done with `MotionProperty` enums, which specifies which methods to call in a `MotionEvent` object. For example, `MotionProperty.X.getValue(MotionEvent)` calls `event.getX()`. It also specifies the view property to animate - `MotionEvent.X.getViewProperty()` corresponds to `View.TRANSLATION_X`. This is useful for the `Actor` builder later on. In addition, tracking and following strategies allow for customization of how the event value is mapped to the spring.
 
 ##### Tracking Strategies
+
 Two tracking strategies are available to configure how an imitator tracks its imitatee.
 
 * `TRACK_ABSOLUTE` maps the imitatee value directly to the spring.
 * `TRACK_DELTA` maps the change in the imitatee value (relative to the initial touch) to the spring.
 
 ##### Follow Strategies
+
 Two follow strategies are available to configure how the spring is updated.
 
 * `FOLLOW_EXACT` maps the imitatee value directly to the current and end value of the spring.
@@ -76,6 +82,7 @@ Two follow strategies are available to configure how the spring is updated.
  to overshoot the current position)
 
 #### Imitating Springs
+
 A `SpringImitator` is also a `SpringListener`. When the `Spring` it is imitating updates, it updates the end value of the `Spring` it is controlling. Usage is simple:
 ```Java
 SpringSystem springSystem = SpringSystem.create();
@@ -88,6 +95,7 @@ leader.addListener(follow);
 ```
 
 ### Actors
+
 Even though backboard reduces a significant amount of boilerplate code, the `Actor` class further simplifes view motion by connecting each component together. It also manages a `View.onTouchListener()` (a `MotionListener`), which it attaches to the `View` automatically (this can be disabled). Here is how to create one:
 ```Java
 Actor actor = new Actor.Builder(SpringSystem.create(), view)
@@ -132,5 +140,28 @@ Actor bolt = new Actor.Builder(SpringSystem.create(), bolter).addTranslateMotion
 ```
 
 #### Actor Options
+
 - `requestDisallowTouchEvent()` causes the `Actor` to call `ViewParent.requestDisallowTouchEvent(true)` which is helpful when the view is inside a `ListView` or another view that captures touch events.
 - `dontAttachMotionListener()` tells the builder to not attach the `MotionListener` to the `View`, which is useful when you want to attach your own `OnTouchListener` to the view.
+
+## Dependencies
+
+* [rebound](http://facebook.github.io/rebound/)
+
+## Contact
+
+* [Eric Leong](mailto:ericleong@tumblr.com)
+
+## License
+
+Copyright 2015 Tumblr, Inc.
+
+Licensed under the Apache License, Version 2.0 (the “License”); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at [apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+> Unless required by applicable law or agreed to in writing, software
+> distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+> WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+> License for the specific language governing permissions and limitations under
+> the License.
