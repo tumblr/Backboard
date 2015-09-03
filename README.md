@@ -21,7 +21,14 @@ A motion-driven animation framework for Android.
 
 ## Usage
 
-Add `'com.facebook.rebound:rebound:0.3.8'` and `com.tumblr.backboard:backboard:+` to your dependencies in `build.gradle`.
+Update your `build.gradle` with
+
+```groovy
+dependencies {
+   compile 'com.facebook.rebound:rebound:0.3.7'
+   compile 'com.tumblr.backboard:backboard:+'
+}
+```
 
 ## Getting Started
 
