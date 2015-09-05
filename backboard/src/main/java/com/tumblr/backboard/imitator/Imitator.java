@@ -107,7 +107,7 @@ public abstract class Imitator {
 	/**
 	 * @param motionValue
 	 * 		Maps the value we are tracking to the value of the spring.
-	 * @return the new end value of the spring. If set to {@link FOLLOW_EXACT}, it is also the current value of the
+	 * @return the new end value of the spring. If set to {@link #FOLLOW_EXACT}, it is also the current value of the
 	 * spring.
 	 */
 	protected abstract double mapToSpring(float motionValue);
