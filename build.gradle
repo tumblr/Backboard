@@ -2,9 +2,13 @@
 
 buildscript {
     repositories {
-        mavenCentral()
+		jcenter()
     }
 	dependencies {
+
+		classpath 'com.android.tools.build:gradle:1.2.3'
+		classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
+		classpath 'com.github.dcendents:android-maven-plugin:1.2'
 
 		// NOTE - this is referencing a local variable that you must set in your gradle.properties
 		// in the top level folder.
@@ -26,6 +30,6 @@ buildscript {
 
 allprojects {
     repositories {
-        mavenCentral()
+		jcenter()
     }
 }

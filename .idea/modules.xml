@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Backboard.iml" filepath="$PROJECT_DIR$/Backboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backboard/backboard.iml" filepath="$PROJECT_DIR$/backboard/backboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backboard-example/backboard-example.iml" filepath="$PROJECT_DIR$/backboard-example/backboard-example.iml" />
+    </modules>
+  </component>
+</project>
