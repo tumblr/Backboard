@@ -26,12 +26,12 @@ ext {
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '23.0.1'
+    compileSdkVersion Integer.parseInt(COMPILE_SDK)
+    buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 22
+        minSdkVersion Integer.parseInt(MIN_SDK)
+        targetSdkVersion Integer.parseInt(TARGET_SDK)
         versionCode 100
         versionName "0.1.0"
     }
@@ -45,7 +45,7 @@ android {
 
 dependencies {
     provided 'com.facebook.rebound:rebound:0.3.8'
-    compile 'com.android.support:support-annotations:23.0.1'
+    compile 'com.android.support:support-annotations:' + SUPPORT_ANNOTATIONS_VERSION
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
