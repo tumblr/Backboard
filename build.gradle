@@ -33,3 +33,12 @@ allprojects {
 		jcenter()
     }
 }
+
+ext {
+	buildToolsVersion = "23.0.1"
+	compileSdkVersion = 22
+	minSdkVersion = 14
+	targetSdkVersion = 23
+	supportAnnotation = "com.android.support:support-annotations:23.0.1"
+	facebookRebound = "com.facebook.rebound:rebound:0.3.8"
+}
