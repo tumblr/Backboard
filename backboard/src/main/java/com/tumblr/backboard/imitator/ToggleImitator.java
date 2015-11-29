@@ -56,7 +56,6 @@ public class ToggleImitator extends EventImitator implements View.OnTouchListene
 				constrain(event);
 				break;
 
-			case MotionEvent.ACTION_CANCEL:
 			case MotionEvent.ACTION_UP:
 				release(event);
 				break;
