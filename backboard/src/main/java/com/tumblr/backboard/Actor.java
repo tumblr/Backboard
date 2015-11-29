@@ -393,14 +393,14 @@ public final class Actor {
 		/**
 		 * Uses a default {@link com.facebook.rebound.SpringConfig}.
 		 *
-		 * @param motionImitator
+		 * @param eventImitator
 		 * 		maps an event to a {@link com.facebook.rebound.Spring}
 		 * @param viewProperties
 		 * 		the {@link android.view.View} property to animate
 		 * @return the builder for chaining
 		 */
 		@NonNull
-		public Builder addMotion(@NonNull MotionImitator motionImitator,
+		public Builder addMotion(@NonNull EventImitator eventImitator,
 		                         @NonNull Property<View, Float>... viewProperties) {
 			Performer[] performers = new Performer[viewProperties.length];
 
@@ -408,7 +408,7 @@ public final class Actor {
 				performers[i] = new Performer(viewProperties[i]);
 			}
 
-			return addMotion(mSpringSystem.createSpring(), motionImitator, performers);
+			return addMotion(mSpringSystem.createSpring(), eventImitator, performers);
 		}
 
 		/**
