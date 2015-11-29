@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+
 import com.facebook.rebound.Spring;
 import com.facebook.rebound.SpringSystem;
 import com.tumblr.backboard.Actor;
@@ -159,15 +160,7 @@ public class FlowerFragment extends Fragment {
 		new Actor.Builder(SpringSystem.create(), mCircle)
 				.addMotion(new SnapImitator(MotionProperty.X), View.TRANSLATION_X)
 				.addMotion(new SnapImitator(MotionProperty.Y), View.TRANSLATION_Y)
-				.onTouchListener(new View.OnTouchListener() {
-					@Override
-					public boolean onTouch(View v, MotionEvent event) {
-						// bloom!
-						imitator.imitate(v, event);
-
-						return true;
-					}
-				})
+				.onTouchListener(imitator)
 				.build();
 
 		return mRootView;
