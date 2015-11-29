@@ -163,7 +163,7 @@ public class FlowerFragment extends Fragment {
 					@Override
 					public boolean onTouch(View v, MotionEvent event) {
 						// bloom!
-						imitator.imitate(event);
+						imitator.imitate(v, event);
 
 						return true;
 					}

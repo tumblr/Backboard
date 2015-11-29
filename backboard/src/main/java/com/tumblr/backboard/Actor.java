@@ -9,6 +9,7 @@ import android.view.ViewConfiguration;
 import com.facebook.rebound.Spring;
 import com.facebook.rebound.SpringListener;
 import com.facebook.rebound.SpringSystem;
+import com.tumblr.backboard.imitator.EventImitator;
 import com.tumblr.backboard.imitator.Imitator;
 import com.tumblr.backboard.imitator.MotionImitator;
 import com.tumblr.backboard.performer.Performer;
@@ -40,18 +41,26 @@ public final class Actor {
 		@NonNull
 		private final Spring spring;
 		@NonNull
-		private final MotionImitator[] imitators;
+		private final EventImitator[] imitators;
 		@NonNull
 		private final Performer[] performers;
 		@Nullable
 		private final SpringListener[] springListeners;
 
-		private Motion(@NonNull Spring spring, @NonNull MotionImitator imitator, @NonNull Performer[] performers,
+		private Motion(@NonNull Spring spring, @NonNull EventImitator imitator, @NonNull Performer[] performers,
 		               @Nullable SpringListener[] springListeners) {
-			this(spring, new MotionImitator[] { imitator }, performers, springListeners);
+			this(spring, new EventImitator[] { imitator }, performers, springListeners);
 		}
 
-		private Motion(@NonNull Spring spring, @NonNull MotionImitator[] imitators, @NonNull Performer[] performers,
+		private Motion(@NonNull Spring spring, @NonNull Performer[] performers,
+		               @Nullable SpringListener[] springListeners) {
+			this.imitators = new MotionImitator[0];
+			this.performers = performers;
+			this.spring = spring;
+			this.springListeners = springListeners;
+		}
+
+		private Motion(@NonNull Spring spring, @NonNull EventImitator[] imitators, @NonNull Performer[] performers,
 		               @Nullable SpringListener[] springListeners) {
 			this.imitators = imitators;
 			this.performers = performers;
@@ -65,7 +74,7 @@ public final class Actor {
 		}
 
 		@NonNull
-		public MotionImitator[] getImitators() {
+		public EventImitator[] getImitators() {
 			return imitators;
 		}
 	}
@@ -405,7 +414,7 @@ public final class Actor {
 		/**
 		 * Uses a default {@link com.facebook.rebound.SpringConfig}.
 		 *
-		 * @param motionImitator
+		 * @param eventImitator
 		 * 		maps an event to a {@link com.facebook.rebound.Spring}
 		 * @param performers
 		 * 		map the {@link com.facebook.rebound.Spring} to a
@@ -413,14 +422,14 @@ public final class Actor {
 		 * @return the builder for chaining
 		 */
 		@NonNull
-		public Builder addMotion(@NonNull MotionImitator motionImitator, Performer... performers) {
-			return addMotion(mSpringSystem.createSpring(), motionImitator, performers);
+		public Builder addMotion(@NonNull EventImitator eventImitator, Performer... performers) {
+			return addMotion(mSpringSystem.createSpring(), eventImitator, performers);
 		}
 
 		/**
 		 * @param spring
 		 * 		the underlying {@link com.facebook.rebound.Spring}.
-		 * @param motionImitator
+		 * @param eventImitator
 		 * 		maps an event to a {@link com.facebook.rebound.Spring}
 		 * @param performers
 		 * 		map the {@link com.facebook.rebound.Spring} to a
@@ -428,10 +437,10 @@ public final class Actor {
 		 * @return the builder for chaining
 		 */
 		@NonNull
-		public Builder addMotion(@NonNull Spring spring, @NonNull MotionImitator motionImitator,
+		public Builder addMotion(@NonNull Spring spring, @NonNull EventImitator eventImitator,
 		                         @NonNull Performer... performers) {
 
-			Motion motion = new Motion(spring, motionImitator, performers, null);
+			Motion motion = new Motion(spring, eventImitator, performers, null);
 
 			// connect actors
 			motion.imitators[0].setSpring(motion.spring);
@@ -448,7 +457,7 @@ public final class Actor {
 		/**
 		 * @param spring
 		 * 		the underlying {@link com.facebook.rebound.Spring}.
-		 * @param motionImitator
+		 * @param eventImitator
 		 * 		maps an event to a {@link com.facebook.rebound.Spring}
 		 * @param performers
 		 * 		map the {@link com.facebook.rebound.Spring} to a
@@ -458,11 +467,11 @@ public final class Actor {
 		 * @return the builder for chaining
 		 */
 		@NonNull
-		public Builder addMotion(@NonNull Spring spring, @NonNull MotionImitator motionImitator,
+		public Builder addMotion(@NonNull Spring spring, @NonNull EventImitator eventImitator,
 		                         @NonNull Performer[] performers, SpringListener[] springListeners) {
 
 			// create struct
-			Motion motion = new Motion(spring, motionImitator, performers, springListeners);
+			final Motion motion = new Motion(spring, eventImitator, performers, springListeners);
 
 			// connect actors
 			motion.imitators[0].setSpring(motion.spring);
@@ -599,7 +608,7 @@ public final class Actor {
 			}
 
 			for (Motion motion : mMotions) {
-				for (MotionImitator imitator : motion.imitators) {
+				for (EventImitator imitator : motion.imitators) {
 					imitator.imitate(v, event);
 				}
 			}
