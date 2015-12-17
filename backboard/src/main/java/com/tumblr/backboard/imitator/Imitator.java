@@ -149,5 +149,10 @@ public abstract class Imitator {
 
 	public void setSpring(@NonNull Spring spring) {
 		mSpring = spring;
+
+		if (mSpring != null) {
+			// Start spring at rest.
+			mSpring.setCurrentValue(mRestValue, true);
+		}
 	}
 }

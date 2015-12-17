@@ -42,28 +42,25 @@ public class ToggleImitator extends EventImitator implements View.OnTouchListene
 		return mActiveValue;
 	}
 
-	/**
-	 * @param event
-	 * 		the event to imitate.
-	 */
-	public void imitate(@NonNull MotionEvent event) {
-		switch (event.getAction()) {
-		case MotionEvent.ACTION_DOWN:
-			constrain(event);
-			break;
+	@Override
+	public boolean onTouch(View v, @NonNull MotionEvent event) {
+		imitate(v, event);
 
-		case MotionEvent.ACTION_UP:
-			release(event);
-			break;
-
-		default:
-		}
+		return true;
 	}
 
 	@Override
-	public boolean onTouch(View v, @NonNull MotionEvent event) {
-		imitate(event);
+	public void imitate(View view, @NonNull MotionEvent event) {
+		switch (event.getAction()) {
+			case MotionEvent.ACTION_DOWN:
+				constrain(event);
+				break;
 
-		return true;
+			case MotionEvent.ACTION_UP:
+				release(event);
+				break;
+
+			default:
+		}
 	}
 }

@@ -144,14 +144,7 @@ public class MotionImitator extends EventImitator {
 		mDownPosition = mProperty.getValue(event) + mOffset;
 	}
 
-	/**
-	 * Maps a user's motion to {@link android.view.View} via a {@link com.facebook.rebound.Spring}.
-	 *
-	 * @param view
-	 * 		the view to perturb.
-	 * @param event
-	 * 		the motion to imitate.
-	 */
+	@Override
 	public void imitate(final View view, @NonNull MotionEvent event) {
 
 		final float viewValue = mProperty.getValue(view);

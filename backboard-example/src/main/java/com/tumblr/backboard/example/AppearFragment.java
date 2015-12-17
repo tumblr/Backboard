@@ -9,6 +9,7 @@ import com.facebook.rebound.Spring;
 import com.facebook.rebound.SpringSystem;
 import com.tumblr.backboard.Actor;
 import com.tumblr.backboard.MotionProperty;
+import com.tumblr.backboard.imitator.EventImitator;
 import com.tumblr.backboard.imitator.MotionImitator;
 import com.tumblr.backboard.performer.Performer;
 
@@ -57,12 +58,15 @@ public class AppearFragment extends Fragment {
 					actors[i].setTouchEnabled(false);
 
 					for (Actor.Motion motion : actors[i].getMotions()) {
-						for (MotionImitator imitator : motion.getImitators()) {
-							if (imitator.getProperty() == MotionProperty.Y) {
-								// TODO: disable the y-motion because it is about to be animated.
-								// imitator.getSpring().deregister();
-							} else {
-								imitator.release(null);
+						for (EventImitator imitator : motion.getImitators()) {
+							if (imitator instanceof MotionImitator) {
+								final MotionImitator motionImitator = (MotionImitator) imitator;
+								if (motionImitator.getProperty() == MotionProperty.Y) {
+									// TODO: disable the y-motion because it is about to be animated
+									// imitator.getSpring().deregister();
+								} else {
+									imitator.release(null);
+								}
 							}
 						}
 					}
@@ -121,14 +125,17 @@ public class AppearFragment extends Fragment {
 						actors[i].setTouchEnabled(true);
 
 						for (Actor.Motion motion : actors[i].getMotions()) {
-							for (MotionImitator imitator : motion.getImitators()) {
-								imitator.getSpring().setCurrentValue(0);
+							for (EventImitator imitator : motion.getImitators()) {
+								if (imitator instanceof MotionImitator) {
+									final MotionImitator motionImitator = (MotionImitator) imitator;
+									imitator.getSpring().setCurrentValue(0);
 
-								// TODO: re-enable the y motion.
-//								if (imitator.getProperty() == MotionProperty.Y &&
-//										!imitator.getSpring().isRegistered()) {
-//									imitator.getSpring().register();
-//								}
+									// TODO: re-enable the y motion.
+//									if (imitator.getProperty() == MotionProperty.Y &&
+//											!imitator.getSpring().isRegistered()) {
+//										imitator.getSpring().register();
+//									}
+								}
 							}
 						}
 
