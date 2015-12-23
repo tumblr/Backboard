@@ -125,7 +125,6 @@ public abstract class EventImitator extends Imitator {
 				}
 
 				break;
-			default:
 			case MotionEvent.ACTION_UP:
 				release(event);
 
