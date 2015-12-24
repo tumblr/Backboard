@@ -70,5 +70,17 @@ task checkstyle(type: Checkstyle) {
     classpath = files()
 }
 
+android.libraryVariants.all { variant ->
+    task("javadoc${variant.name}", type: Javadoc) {
+        source = variant.javaCompile.source
+        ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+        options.links("http://docs.oracle.com/javase/7/docs/api/")
+        options.links("http://developer.android.com/reference/reference/")
+        exclude '**/BuildConfig.java'
+        exclude '**/R.java'
+    }
+}
+
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
