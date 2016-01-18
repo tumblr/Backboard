@@ -59,7 +59,7 @@ An `Imitator` constantly perturbs the `Spring` it is attached to. This perturbat
 
 1. A `MotionEvent`, where the `Spring` can change based on the action (`ACTION_DOWN`, `ACTION_UP`), or imitate a property (`x`, `y`, etc.). These are called `EventImitators`.
 2. Another `Spring`, which leads to results similar to springs being chained together. These are called `SpringImitators`.
- 
+
 
 #### Imitating Touch
 
@@ -124,7 +124,7 @@ SpringSystem springSystem = SpringSystem.create();
 Spring spring = springSystem.createSpring();
 
 Actor verbose = new Actor.Builder(springSystem, view)
- .addMotion(spring, new MotionImitator(spring, MotionProperty.X), 
+ .addMotion(spring, new MotionImitator(spring, MotionProperty.X),
                     new Performer(view, View.TRANSLATION_X)
  .build();
 ```
@@ -137,7 +137,7 @@ Actor walk = new Actor.Builder(SpringSystem.create(), walker)
     new Performer(View.TRANSLATION_X))
   .build();
 ```
-which can be further simplified to 
+which can be further simplified to
 ```Java
 Actor run = new Actor.Builder(SpringSystem.create(), runner).addMotion(MotionProperty.X, View.TRANSLATION_X).build();
 ```
@@ -161,7 +161,7 @@ Actor bolt = new Actor.Builder(SpringSystem.create(), bolter).addTranslateMotion
 
 ## License
 
-Copyright 2015 Tumblr, Inc.
+Copyright 2015-2016 Tumblr, Inc.
 
 Licensed under the Apache License, Version 2.0 (the “License”); you may not use
 this file except in compliance with the License. You may obtain a copy of the
