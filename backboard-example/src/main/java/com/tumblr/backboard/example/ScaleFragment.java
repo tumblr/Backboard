@@ -18,11 +18,6 @@ import com.tumblr.backboard.performer.Performer;
 public class ScaleFragment extends Fragment {
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-	}
-
-	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 		final View rootView = inflater.inflate(R.layout.fragment_scale, container, false);

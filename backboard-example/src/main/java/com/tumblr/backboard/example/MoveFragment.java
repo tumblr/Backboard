@@ -24,8 +24,7 @@ public class MoveFragment extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragment_move, container, false);
 
 		new Actor.Builder(SpringSystem.create(), rootView.findViewById(R.id.circle))
-				.addTranslateMotion(Imitator.TRACK_DELTA, Imitator.FOLLOW_EXACT, MotionProperty.X)
-				.addTranslateMotion(Imitator.TRACK_DELTA, Imitator.FOLLOW_EXACT, MotionProperty.Y)
+				.addTranslateMotion(MotionProperty.X)
 				.build();
 
 		return rootView;

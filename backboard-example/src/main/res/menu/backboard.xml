@@ -51,4 +51,9 @@
 		android:title="@string/action_constrained"
 		android:orderInCategory="100"
 		android:showAsAction="never" />
+
+	<item android:id="@+id/action_rebound"
+		android:title="@string/action_rebound"
+		android:orderInCategory="100"
+		android:showAsAction="never" />
 </menu>

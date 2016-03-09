@@ -12,5 +12,6 @@
     <string name="action_follow">Follow</string>
     <string name="action_zoom">Zoom</string>
     <string name="action_constrained">Constrain</string>
+    <string name="action_rebound">Rebound</string>
 
 </resources>

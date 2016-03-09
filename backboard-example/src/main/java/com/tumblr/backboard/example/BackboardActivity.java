@@ -107,6 +107,13 @@ public class BackboardActivity extends Activity {
 					.commit();
 			setTitle(R.string.action_constrained);
 			return true;
+
+		case R.id.action_rebound:
+			getFragmentManager().beginTransaction()
+					.replace(R.id.container, new ReboundFragment())
+					.commit();
+			setTitle(R.string.action_rebound);
+			return true;
 		}
 
 		return super.onOptionsItemSelected(item);
