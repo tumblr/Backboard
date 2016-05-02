@@ -1,12 +1,14 @@
 ![the backboard icon](backboard-example/src/main/res/mipmap-xxhdpi/ic_launcher.png?raw=true)
 
-# backboard
+# Backboard
 
 A motion-driven animation framework for Android.
 
 `backboard` is a framework on top of [rebound](http://facebook.github.io/rebound/) that makes it easier to use by coupling it to views and motions.
 
-`backboard-example` is an Android app with a few demos of animations made possible by `backboard`.
+`backboard-example` is an Android app with a few demos of animations made possible by Backboard.
+
+[Javadoc](http://tumblr.github.io/Backboard/javadoc/)
 
 ## Table of Contents
 
