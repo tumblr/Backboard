@@ -2,6 +2,8 @@
 
 # Backboard
 
+[![CircleCI](https://circleci.com/gh/tumblr/Backboard/tree/master.svg?style=svg)](https://circleci.com/gh/tumblr/Backboard/tree/master)
+
 A motion-driven animation framework for Android.
 
 `backboard` is a framework on top of [rebound](http://facebook.github.io/rebound/) that makes it easier to use by coupling it to views and motions.
