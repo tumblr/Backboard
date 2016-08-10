@@ -600,13 +600,17 @@ public final class Actor {
 		@SuppressLint("ClickableViewAccessibility")
 		public boolean onTouch(@NonNull final View v, @NonNull final MotionEvent event) {
 
-			if (!mMotionListenerEnabled) {
+			final boolean retVal;
+
+			if (!mMotionListenerEnabled || mMotions.isEmpty()) {
 
 				if (mOnTouchListener != null) {
-					mOnTouchListener.onTouch(v, event);
+					retVal = mOnTouchListener.onTouch(v, event);
+				} else {
+					retVal = false;
 				}
 
-				return false;
+				return retVal;
 			}
 
 			for (Motion motion : mMotions) {
@@ -616,7 +620,9 @@ public final class Actor {
 			}
 
 			if (mOnTouchListener != null) {
-				mOnTouchListener.onTouch(v, event);
+				retVal = mOnTouchListener.onTouch(v, event);
+			} else {
+				retVal = true;
 			}
 
 			if (mRequestDisallowTouchEvent) {
@@ -648,7 +654,7 @@ public final class Actor {
 				}
 			}
 
-			return true;
+			return retVal;
 		}
 	}
 }
