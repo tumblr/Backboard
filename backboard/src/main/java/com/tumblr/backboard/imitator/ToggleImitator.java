@@ -26,31 +26,31 @@ public class ToggleImitator extends EventImitator implements View.OnTouchListene
 	 * @param activeValue
 	 * 		the value when on.
 	 */
-	public ToggleImitator(@NonNull Spring spring, double restValue, double activeValue) {
+	public ToggleImitator(@NonNull final Spring spring, final double restValue, final double activeValue) {
 		super(spring, restValue, TRACK_ABSOLUTE, FOLLOW_EXACT);
 		mActiveValue = activeValue;
 	}
 
 	@Override
-	public void constrain(MotionEvent event) {
+	public void constrain(final MotionEvent event) {
 		mSpring.setEndValue(mActiveValue);
 	}
 
 	@Override
-	protected double mapToSpring(float motionValue) {
+	protected double mapToSpring(final float motionValue) {
 		// not used
 		return mActiveValue;
 	}
 
 	@Override
-	public boolean onTouch(View v, @NonNull MotionEvent event) {
+	public boolean onTouch(final View v, @NonNull final MotionEvent event) {
 		imitate(v, event);
 
 		return true;
 	}
 
 	@Override
-	public void imitate(View view, @NonNull MotionEvent event) {
+	public void imitate(final View view, @NonNull final MotionEvent event) {
 		switch (event.getAction()) {
 			case MotionEvent.ACTION_DOWN:
 				constrain(event);

@@ -7,7 +7,7 @@ import com.facebook.rebound.Spring;
  * Perturbs a {@link com.facebook.rebound.Spring} based on some other source.
  * {@link #mapToSpring(float)} controls how the source value maps to the spring. Track and follow
  * strategies are hints to subclasses as to the desired behavior of the mapping.
- * <p/>
+ * <p>
  * Created by ericleong on 5/16/14.
  */
 public abstract class Imitator {
@@ -57,7 +57,7 @@ public abstract class Imitator {
 	 * @param followStrategy
 	 * 		the follow strategy.
 	 */
-	protected Imitator(double restValue, int trackStrategy, int followStrategy) {
+	protected Imitator(final double restValue, final int trackStrategy, final int followStrategy) {
 		this(null, restValue, trackStrategy, followStrategy);
 	}
 
@@ -67,7 +67,7 @@ public abstract class Imitator {
 	 * @param spring
 	 * 		the spring to use.
 	 */
-	protected Imitator(@NonNull Spring spring) {
+	protected Imitator(@NonNull final Spring spring) {
 		this(spring, TRACK_ABSOLUTE, FOLLOW_EXACT);
 	}
 
@@ -81,7 +81,7 @@ public abstract class Imitator {
 	 * @param followStrategy
 	 * 		the follow strategy.
 	 */
-	protected Imitator(@NonNull Spring spring, int trackStrategy, int followStrategy) {
+	protected Imitator(@NonNull final Spring spring, final int trackStrategy, final int followStrategy) {
 		this(spring, spring.getEndValue(), trackStrategy, followStrategy);
 	}
 
@@ -97,7 +97,7 @@ public abstract class Imitator {
 	 * @param followStrategy
 	 * 		the follow strategy.
 	 */
-	protected Imitator(@NonNull Spring spring, double restValue, int trackStrategy, int followStrategy) {
+	protected Imitator(@NonNull final Spring spring, final double restValue, final int trackStrategy, final int followStrategy) {
 		mSpring = spring;
 		mRestValue = restValue;
 		mTrackStrategy = trackStrategy;
@@ -110,7 +110,7 @@ public abstract class Imitator {
 	 * @return the new end value of the spring. If set to {@link #FOLLOW_EXACT}, it is also the current value of the
 	 * spring.
 	 */
-	protected abstract double mapToSpring(float motionValue);
+	protected abstract double mapToSpring(final float motionValue);
 
 	public int getTrackStrategy() {
 		return mTrackStrategy;
@@ -122,7 +122,7 @@ public abstract class Imitator {
 	 * @return this object for chaining
 	 */
 	@NonNull
-	public Imitator setTrackStrategy(int trackStrategy) {
+	public Imitator setTrackStrategy(final int trackStrategy) {
 		mTrackStrategy = trackStrategy;
 		return this;
 	}
@@ -137,7 +137,7 @@ public abstract class Imitator {
 	 * @return this object for chaining
 	 */
 	@NonNull
-	public Imitator setFollowStrategy(int followStrategy) {
+	public Imitator setFollowStrategy(final int followStrategy) {
 		mFollowStrategy = followStrategy;
 		return this;
 	}
@@ -147,7 +147,11 @@ public abstract class Imitator {
 		return mSpring;
 	}
 
-	public void setSpring(@NonNull Spring spring) {
+	/**
+	 * @param spring
+	 * 		the spring to set (sets spring's current to the rest value)
+	 */
+	public void setSpring(@NonNull final Spring spring) {
 		mSpring = spring;
 
 		if (mSpring != null) {

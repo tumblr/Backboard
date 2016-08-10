@@ -47,21 +47,21 @@ public final class Actor {
 		@Nullable
 		private final SpringListener[] springListeners;
 
-		private Motion(@NonNull Spring spring, @NonNull EventImitator imitator, @NonNull Performer[] performers,
-		               @Nullable SpringListener[] springListeners) {
+		private Motion(@NonNull final Spring spring, @NonNull final EventImitator imitator, @NonNull final Performer[] performers,
+		               @Nullable final SpringListener[] springListeners) {
 			this(spring, new EventImitator[] { imitator }, performers, springListeners);
 		}
 
-		private Motion(@NonNull Spring spring, @NonNull Performer[] performers,
-		               @Nullable SpringListener[] springListeners) {
+		private Motion(@NonNull final Spring spring, @NonNull final Performer[] performers,
+		               @Nullable final SpringListener[] springListeners) {
 			this.imitators = new MotionImitator[0];
 			this.performers = performers;
 			this.spring = spring;
 			this.springListeners = springListeners;
 		}
 
-		private Motion(@NonNull Spring spring, @NonNull EventImitator[] imitators, @NonNull Performer[] performers,
-		               @Nullable SpringListener[] springListeners) {
+		private Motion(@NonNull final Spring spring, @NonNull final EventImitator[] imitators, @NonNull final Performer[] performers,
+		               @Nullable final SpringListener[] springListeners) {
 			this.imitators = imitators;
 			this.performers = performers;
 			this.spring = spring;
@@ -96,10 +96,10 @@ public final class Actor {
 	 */
 	private boolean mRequestDisallowTouchEvent;
 
-	private Actor(@NonNull View view, @NonNull List<Motion> motions,
-	              @Nullable View.OnTouchListener onTouchListener,
-	              boolean motionListenerEnabled, boolean attachTouchListener,
-	              boolean requestDisallowTouchEvent) {
+	private Actor(@NonNull final View view, @NonNull final List<Motion> motions,
+	              @Nullable final View.OnTouchListener onTouchListener,
+	              final boolean motionListenerEnabled, final boolean attachTouchListener,
+	              final boolean requestDisallowTouchEvent) {
 		mView = view;
 		mMotions = motions;
 		mOnTouchListener = onTouchListener;
@@ -138,7 +138,7 @@ public final class Actor {
 		return mMotionListenerEnabled;
 	}
 
-	public void setTouchEnabled(boolean enabled) {
+	public void setTouchEnabled(final boolean enabled) {
 		this.mMotionListenerEnabled = enabled;
 	}
 
@@ -191,7 +191,7 @@ public final class Actor {
 		private final SpringSystem mSpringSystem;
 		private boolean mMotionListenerEnabled = true;
 		private boolean mAttachMotionListener = true;
-		private boolean mRequestDisallowTouchEvent = false;
+		private boolean mRequestDisallowTouchEvent;
 		private boolean mAttachSpringListeners = true;
 
 		/**
@@ -203,7 +203,7 @@ public final class Actor {
 		 * @param view
 		 * 		the view to animate
 		 */
-		public Builder(@NonNull SpringSystem springSystem, @NonNull View view) {
+		public Builder(@NonNull final SpringSystem springSystem, @NonNull final View view) {
 			mView = view;
 			mSpringSystem = springSystem;
 		}
@@ -214,7 +214,7 @@ public final class Actor {
 		 * @return this builder for chaining
 		 */
 		@NonNull
-		public Builder onTouchListener(View.OnTouchListener onTouchListener) {
+		public Builder onTouchListener(final View.OnTouchListener onTouchListener) {
 			mOnTouchListener = onTouchListener;
 			return this;
 		}
@@ -227,7 +227,7 @@ public final class Actor {
 		 * @return this builder for chaining
 		 */
 		@NonNull
-		public Builder addTranslateMotion(MotionProperty... properties) {
+		public Builder addTranslateMotion(final MotionProperty... properties) {
 			return addMotion(mSpringSystem.createSpring(), properties);
 		}
 
@@ -241,7 +241,7 @@ public final class Actor {
 		 * @return this builder for chaining
 		 */
 		@NonNull
-		public Builder addTranslateMotion(MotionProperty property, SpringListener listener) {
+		public Builder addTranslateMotion(final MotionProperty property, final SpringListener listener) {
 			return addMotion(mSpringSystem.createSpring(), Imitator.TRACK_ABSOLUTE,
 					Imitator.FOLLOW_EXACT, new MotionProperty[] { property },
 					new SpringListener[] { listener });
@@ -259,8 +259,8 @@ public final class Actor {
 		 * @return this builder for chaining
 		 */
 		@NonNull
-		public Builder addTranslateMotion(int trackStrategy, int followStrategy,
-		                                  MotionProperty... properties) {
+		public Builder addTranslateMotion(final int trackStrategy, final int followStrategy,
+		                                  final MotionProperty... properties) {
 			return addMotion(mSpringSystem.createSpring(), trackStrategy, followStrategy,
 					properties);
 		}
@@ -279,9 +279,9 @@ public final class Actor {
 		 * @return this builder for chaining
 		 */
 		@NonNull
-		public Builder addTranslateMotion(int trackStrategy, int followStrategy,
-		                                  int restValue,
-		                                  MotionProperty... properties) {
+		public Builder addTranslateMotion(final int trackStrategy, final int followStrategy,
+		                                  final int restValue,
+		                                  final MotionProperty... properties) {
 			return addMotion(mSpringSystem.createSpring(), trackStrategy, followStrategy,
 					restValue, properties);
 		}
@@ -294,7 +294,7 @@ public final class Actor {
 		 * @return this builder for chaining
 		 */
 		@NonNull
-		public Builder addMotion(@NonNull Spring spring, MotionProperty... properties) {
+		public Builder addMotion(@NonNull final Spring spring, final MotionProperty... properties) {
 			return addMotion(spring, Imitator.TRACK_ABSOLUTE, Imitator.FOLLOW_EXACT, properties);
 		}
 
@@ -310,8 +310,8 @@ public final class Actor {
 		 * @return this builder for chaining
 		 */
 		@NonNull
-		public Builder addMotion(@NonNull Spring spring, int trackStrategy, int followStrategy,
-		                         @NonNull MotionProperty... properties) {
+		public Builder addMotion(@NonNull final Spring spring, final int trackStrategy, final int followStrategy,
+		                         @NonNull final MotionProperty... properties) {
 
 			mMotions.add(createMotionFromProperties(spring, properties, null, trackStrategy, followStrategy, 0));
 
@@ -332,8 +332,8 @@ public final class Actor {
 		 * @return this builder for chaining
 		 */
 		@NonNull
-		public Builder addMotion(@NonNull Spring spring, int trackStrategy, int followStrategy,
-		                         int restValue, @NonNull MotionProperty... properties) {
+		public Builder addMotion(@NonNull final Spring spring, final int trackStrategy, final int followStrategy,
+		                         final int restValue, @NonNull final MotionProperty... properties) {
 
 			mMotions.add(
 					createMotionFromProperties(spring, properties, null, trackStrategy, followStrategy, restValue));
@@ -357,8 +357,8 @@ public final class Actor {
 		 * @return this builder for chaining
 		 */
 		@NonNull
-		public Builder addMotion(@NonNull Spring spring, int trackStrategy, int followStrategy,
-		                         int restValue, MotionProperty property, @Nullable SpringListener springListener) {
+		public Builder addMotion(@NonNull final Spring spring, final int trackStrategy, final int followStrategy,
+		                         final int restValue, final MotionProperty property, @Nullable final SpringListener springListener) {
 
 			mMotions.add(
 					createMotionFromProperties(spring, new MotionProperty[] { property },
@@ -381,8 +381,8 @@ public final class Actor {
 		 * @return this builder for chaining
 		 */
 		@NonNull
-		public Builder addMotion(@NonNull Spring spring, int trackStrategy, int followStrategy,
-		                         @NonNull MotionProperty[] properties, SpringListener[] springListeners) {
+		public Builder addMotion(@NonNull final Spring spring, final int trackStrategy, final int followStrategy,
+		                         @NonNull final MotionProperty[] properties, final SpringListener[] springListeners) {
 
 			mMotions.add(
 					createMotionFromProperties(spring, properties, springListeners, trackStrategy, followStrategy, 0));
@@ -400,9 +400,9 @@ public final class Actor {
 		 * @return the builder for chaining
 		 */
 		@NonNull
-		public Builder addMotion(@NonNull EventImitator eventImitator,
-		                         @NonNull Property<View, Float>... viewProperties) {
-			Performer[] performers = new Performer[viewProperties.length];
+		public Builder addMotion(@NonNull final EventImitator eventImitator,
+		                         @NonNull final Property<View, Float>... viewProperties) {
+			final Performer[] performers = new Performer[viewProperties.length];
 
 			for (int i = 0; i < viewProperties.length; i++) {
 				performers[i] = new Performer(viewProperties[i]);
@@ -422,7 +422,7 @@ public final class Actor {
 		 * @return the builder for chaining
 		 */
 		@NonNull
-		public Builder addMotion(@NonNull EventImitator eventImitator, Performer... performers) {
+		public Builder addMotion(@NonNull final EventImitator eventImitator, final Performer... performers) {
 			return addMotion(mSpringSystem.createSpring(), eventImitator, performers);
 		}
 
@@ -437,10 +437,10 @@ public final class Actor {
 		 * @return the builder for chaining
 		 */
 		@NonNull
-		public Builder addMotion(@NonNull Spring spring, @NonNull EventImitator eventImitator,
-		                         @NonNull Performer... performers) {
+		public Builder addMotion(@NonNull final Spring spring, @NonNull final EventImitator eventImitator,
+		                         @NonNull final Performer... performers) {
 
-			Motion motion = new Motion(spring, eventImitator, performers, null);
+			final Motion motion = new Motion(spring, eventImitator, performers, null);
 
 			// connect actors
 			motion.imitators[0].setSpring(motion.spring);
@@ -467,8 +467,8 @@ public final class Actor {
 		 * @return the builder for chaining
 		 */
 		@NonNull
-		public Builder addMotion(@NonNull Spring spring, @NonNull EventImitator eventImitator,
-		                         @NonNull Performer[] performers, SpringListener[] springListeners) {
+		public Builder addMotion(@NonNull final Spring spring, @NonNull final EventImitator eventImitator,
+		                         @NonNull final Performer[] performers, final SpringListener[] springListeners) {
 
 			// create struct
 			final Motion motion = new Motion(spring, eventImitator, performers, springListeners);
@@ -495,9 +495,9 @@ public final class Actor {
 		 * @return the builder for chaining
 		 */
 		@NonNull
-		public Builder addMotion(@NonNull MotionImitator motionImitator,
-		                         @NonNull Property<View, Float> viewProperty,
-		                         SpringListener springListener) {
+		public Builder addMotion(@NonNull final MotionImitator motionImitator,
+		                         @NonNull final Property<View, Float> viewProperty,
+		                         final SpringListener springListener) {
 
 			return addMotion(mSpringSystem.createSpring(), motionImitator,
 					new Performer[] { new Performer(viewProperty) },
@@ -562,12 +562,12 @@ public final class Actor {
 		                                          final int trackStrategy, final int followStrategy,
 		                                          final int restValue) {
 
-			MotionImitator[] motionImitators = new MotionImitator[motionProperties.length];
-			Performer[] performers = new Performer[motionProperties.length];
+			final MotionImitator[] motionImitators = new MotionImitator[motionProperties.length];
+			final Performer[] performers = new Performer[motionProperties.length];
 
 			for (int i = 0; i < motionProperties.length; i++) {
 
-				MotionProperty property = motionProperties[i];
+				final MotionProperty property = motionProperties[i];
 
 				motionImitators[i] = new MotionImitator(spring, property, restValue, trackStrategy, followStrategy);
 				performers[i] = new Performer(mView, property.getViewProperty());
@@ -583,7 +583,7 @@ public final class Actor {
 		public Actor build() {
 			// make connections
 
-			Actor actor = new Actor(mView, mMotions, mOnTouchListener, mMotionListenerEnabled, mAttachMotionListener,
+			final Actor actor = new Actor(mView, mMotions, mOnTouchListener, mMotionListenerEnabled, mAttachMotionListener,
 					mRequestDisallowTouchEvent);
 
 			if (mAttachSpringListeners) {
@@ -596,7 +596,7 @@ public final class Actor {
 
 	private class MotionListener implements View.OnTouchListener {
 		@Override
-		public boolean onTouch(@NonNull View v, @NonNull MotionEvent event) {
+		public boolean onTouch(@NonNull final View v, @NonNull final MotionEvent event) {
 
 			if (!mMotionListenerEnabled) {
 
@@ -631,8 +631,8 @@ public final class Actor {
 				}
 
 				if (event.getHistorySize() > 0) {
-					float deltaX = event.getHistoricalX(event.getHistorySize() - 1) - event.getX();
-					float deltaY = event.getHistoricalY(event.getHistorySize() - 1) - event.getY();
+					final float deltaX = event.getHistoricalX(event.getHistorySize() - 1) - event.getX();
+					final float deltaY = event.getHistoricalY(event.getHistorySize() - 1) - event.getY();
 
 					// if user has moved too far, it is no longer a click
 					final boolean removeClickState = Math.pow(deltaX, 2) + Math.pow(deltaY, 2)

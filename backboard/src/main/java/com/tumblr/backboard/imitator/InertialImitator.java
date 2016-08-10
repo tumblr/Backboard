@@ -47,7 +47,7 @@ public class InertialImitator extends ConstrainedMotionImitator implements Sprin
 	 * @param maxValue
 	 * 		the maximum value
 	 */
-	public InertialImitator(@NonNull MotionProperty property, double minValue, double maxValue) {
+	public InertialImitator(@NonNull final MotionProperty property, final double minValue, final double maxValue) {
 		super(property, minValue, maxValue);
 	}
 
@@ -65,8 +65,8 @@ public class InertialImitator extends ConstrainedMotionImitator implements Sprin
 	 * @param maxValue
 	 * 		the desired maximum spring value.
 	 */
-	public InertialImitator(@NonNull MotionProperty property, int trackStrategy, int followStrategy,
-	                        double minValue, double maxValue) {
+	public InertialImitator(@NonNull final MotionProperty property, final int trackStrategy, final int followStrategy,
+	                        final double minValue, final double maxValue) {
 		super(property, trackStrategy, followStrategy, minValue, maxValue);
 	}
 
@@ -79,7 +79,7 @@ public class InertialImitator extends ConstrainedMotionImitator implements Sprin
 	 * 		the spring to use
 	 */
 	@Override
-	public void setSpring(@NonNull Spring spring) {
+	public void setSpring(@NonNull final Spring spring) {
 		super.setSpring(spring);
 		spring.addListener(this);
 
@@ -87,16 +87,16 @@ public class InertialImitator extends ConstrainedMotionImitator implements Sprin
 	}
 
 	@Override
-	public void constrain(MotionEvent event) {
+	public void constrain(final MotionEvent event) {
 		super.constrain(event);
 
 		mSpring.setSpringConfig(mOriginalConfig);
 	}
 
 	@Override
-	public void release(MotionEvent event) {
+	public void release(final MotionEvent event) {
 		// snap to left or right depending on current location
-		double restPosition = calculateRestPosition();
+		final double restPosition = calculateRestPosition();
 		if (mSpring.getCurrentValue() > mMaxValue && restPosition > mMaxValue) {
 			mSpring.setEndValue(mMaxValue);
 		} else if (mSpring.getCurrentValue() < mMinValue && restPosition < mMinValue) {
@@ -116,18 +116,18 @@ public class InertialImitator extends ConstrainedMotionImitator implements Sprin
 				+ VELOCITY_RATIO * mSpring.getVelocity() / (mSpring.getSpringConfig().friction);
 	}
 
-	public void setMinValue(double minValue) {
+	public void setMinValue(final double minValue) {
 		this.mMinValue = minValue;
 	}
 
-	public void setMaxValue(double maxValue) {
+	public void setMaxValue(final double maxValue) {
 		this.mMaxValue = maxValue;
 	}
 
 	@Override
-	public void onSpringUpdate(Spring spring) {
+	public void onSpringUpdate(final Spring spring) {
 		if (mSpring != null) {
-			double restPosition = calculateRestPosition();
+			final double restPosition = calculateRestPosition();
 			if (mSpring.getSpringConfig().equals(SPRING_CONFIG_FRICTION)) {
 				if (mSpring.getCurrentValue() > mMaxValue && restPosition > mMaxValue) {
 					mSpring.setSpringConfig(mOriginalConfig);
@@ -141,17 +141,17 @@ public class InertialImitator extends ConstrainedMotionImitator implements Sprin
 	}
 
 	@Override
-	public void onSpringAtRest(Spring spring) {
+	public void onSpringAtRest(final Spring spring) {
 		// pass
 	}
 
 	@Override
-	public void onSpringActivate(Spring spring) {
+	public void onSpringActivate(final Spring spring) {
 		// pass
 	}
 
 	@Override
-	public void onSpringEndStateChange(Spring spring) {
+	public void onSpringEndStateChange(final Spring spring) {
 		// pass
 	}
 }

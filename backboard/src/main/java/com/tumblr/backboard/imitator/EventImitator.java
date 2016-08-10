@@ -27,7 +27,7 @@ public abstract class EventImitator extends Imitator {
 	 * @param followStrategy
 	 * 		the follow strategy.
 	 */
-	public EventImitator(@NonNull Spring spring, double restValue, int trackStrategy, int followStrategy) {
+	public EventImitator(@NonNull final Spring spring, final double restValue, final int trackStrategy, final int followStrategy) {
 		super(spring, restValue, trackStrategy, followStrategy);
 	}
 
@@ -41,7 +41,7 @@ public abstract class EventImitator extends Imitator {
 	 * @param followStrategy
 	 * 		the follow strategy.
 	 */
-	protected EventImitator(double restValue, int trackStrategy, int followStrategy) {
+	protected EventImitator(final double restValue, final int trackStrategy, final int followStrategy) {
 		super(restValue, trackStrategy, followStrategy);
 	}
 
@@ -51,7 +51,7 @@ public abstract class EventImitator extends Imitator {
 	 * @param event
 	 * 		the motion event
 	 */
-	public void constrain(MotionEvent event) {
+	public void constrain(final MotionEvent event) {
 		if (mSpring != null && mFollowStrategy == FOLLOW_EXACT) {
 			mSpring.setVelocity(0);
 		}
@@ -71,7 +71,7 @@ public abstract class EventImitator extends Imitator {
 	 * @param event
 	 * 		the motion event
 	 */
-	public void mime(float offset, float value, float delta, float dt, MotionEvent event) {
+	public void mime(final float offset, final float value, final float delta, final float dt, final MotionEvent event) {
 		if (mSpring != null) {
 			mSpring.setEndValue(mapToSpring(offset + value));
 
@@ -91,7 +91,7 @@ public abstract class EventImitator extends Imitator {
 	 * @param event
 	 * 		the motion event
 	 */
-	public void release(MotionEvent event) {
+	public void release(final MotionEvent event) {
 		if (mSpring != null) {
 			mSpring.setEndValue(mRestValue);
 		}
@@ -110,7 +110,7 @@ public abstract class EventImitator extends Imitator {
 	 * @param event
 	 * 		the motion event
 	 */
-	protected void imitate(float offset, float value, float delta, @Nullable MotionEvent event) {
+	protected void imitate(final float offset, final float value, final float delta, @Nullable final MotionEvent event) {
 		if (event != null) {
 			switch (event.getAction()) {
 			case MotionEvent.ACTION_DOWN:
@@ -125,6 +125,7 @@ public abstract class EventImitator extends Imitator {
 				}
 
 				break;
+			default:
 			case MotionEvent.ACTION_UP:
 				release(event);
 
@@ -141,5 +142,5 @@ public abstract class EventImitator extends Imitator {
 	 * @param event
 	 * 		the motion to imitate.
 	 */
-	public abstract void imitate(final View view, @NonNull MotionEvent event);
+	public abstract void imitate(final View view, @NonNull final MotionEvent event);
 }

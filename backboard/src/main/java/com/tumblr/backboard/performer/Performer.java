@@ -32,7 +32,7 @@ public class Performer implements SpringListener {
 	 * @param property
 	 * 		the view property to modify.
 	 */
-	public Performer(@NonNull Property<View, Float> property) {
+	public Performer(@NonNull final Property<View, Float> property) {
 		this(null, property);
 	}
 
@@ -44,7 +44,7 @@ public class Performer implements SpringListener {
 	 * @param property
 	 * 		the view property to modify.
 	 */
-	public Performer(@Nullable View target, @NonNull Property<View, Float> property) {
+	public Performer(@Nullable final View target, @NonNull final Property<View, Float> property) {
 		this.mTarget = target;
 		this.mProperty = property;
 	}
@@ -54,7 +54,7 @@ public class Performer implements SpringListener {
 		return mTarget;
 	}
 
-	public void setTarget(@Nullable View target) {
+	public void setTarget(@Nullable final View target) {
 		this.mTarget = target;
 	}
 
@@ -63,29 +63,29 @@ public class Performer implements SpringListener {
 		return mProperty;
 	}
 
-	public void setProperty(@NonNull Property<View, Float> property) {
+	public void setProperty(@NonNull final Property<View, Float> property) {
 		this.mProperty = property;
 	}
 
 	@Override
-	public void onSpringUpdate(@NonNull Spring spring) {
+	public void onSpringUpdate(@NonNull final Spring spring) {
 		if (mProperty != null && mTarget != null) {
 			mProperty.set(mTarget, (float) spring.getCurrentValue());
 		}
 	}
 
 	@Override
-	public void onSpringAtRest(Spring spring) {
+	public void onSpringAtRest(final Spring spring) {
 
 	}
 
 	@Override
-	public void onSpringActivate(Spring spring) {
+	public void onSpringActivate(final Spring spring) {
 
 	}
 
 	@Override
-	public void onSpringEndStateChange(Spring spring) {
+	public void onSpringEndStateChange(final Spring spring) {
 
 	}
 }
