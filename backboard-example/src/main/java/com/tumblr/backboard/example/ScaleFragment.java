@@ -1,5 +1,6 @@
 package com.tumblr.backboard.example;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -38,6 +39,7 @@ public class ScaleFragment extends Fragment {
 
 		rootView.setOnTouchListener(new View.OnTouchListener() {
 			@Override
+			@SuppressLint("ClickableViewAccessibility")
 			public boolean onTouch(View v, MotionEvent event) {
 				switch (event.getAction()) {
 				case MotionEvent.ACTION_DOWN:

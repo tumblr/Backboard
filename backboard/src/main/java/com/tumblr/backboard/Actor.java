@@ -1,5 +1,6 @@
 package com.tumblr.backboard;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Property;
@@ -596,6 +597,7 @@ public final class Actor {
 
 	private class MotionListener implements View.OnTouchListener {
 		@Override
+		@SuppressLint("ClickableViewAccessibility")
 		public boolean onTouch(@NonNull final View v, @NonNull final MotionEvent event) {
 
 			if (!mMotionListenerEnabled) {

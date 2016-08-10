@@ -1,5 +1,6 @@
 package com.tumblr.backboard.example;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.*;
@@ -52,6 +53,7 @@ public class ZoomFragment extends Fragment {
 
 		rootView.setOnTouchListener(new View.OnTouchListener() {
 			@Override
+			@SuppressLint("ClickableViewAccessibility")
 			public boolean onTouch(View v, MotionEvent event) {
 				return scaleGestureDetector.onTouchEvent(event);
 			}

@@ -1,6 +1,7 @@
 package com.tumblr.backboard.example;
 
 import android.app.Fragment;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,7 +54,11 @@ public class ConstrainedFragment extends Fragment {
 						-constraintView.getMeasuredHeight() / 2 + circle.getMeasuredWidth() / 2);
 				motionImitatorY.setMaxValue(
 						constraintView.getMeasuredHeight() / 2 - circle.getMeasuredWidth() / 2);
-				rootView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+					rootView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+				} else {
+					rootView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+				}
 			}
 		});
 

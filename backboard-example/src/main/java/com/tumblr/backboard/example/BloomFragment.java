@@ -39,7 +39,7 @@ public class BloomFragment extends Fragment {
 		float diameter = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DIAMETER,
 				getResources().getDisplayMetrics());
 
-		TypedArray circles = getResources().obtainTypedArray(R.array.circles);
+		final TypedArray circles = getResources().obtainTypedArray(R.array.circles);
 
 		// layout params
 		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams((int) diameter,
@@ -63,6 +63,8 @@ public class BloomFragment extends Fragment {
 
 			mRootView.addView(mCircles[i]);
 		}
+
+		circles.recycle();
 
 		/* Animations! */
 

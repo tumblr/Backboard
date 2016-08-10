@@ -1,113 +1,105 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:clipChildren="false"
-    android:clipToPadding="false"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:clipChildren="false"
+	android:clipToPadding="false"
+	android:orientation="vertical"
+	android:layout_gravity="center">
 
 	<LinearLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
 		android:clipChildren="false"
 		android:clipToPadding="false"
-		android:orientation="vertical"
-		android:layout_centerInParent="true">
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
 
-		<LinearLayout
-			android:clipChildren="false"
-			android:clipToPadding="false"
-			android:orientation="horizontal"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
+		<Space
+			android:layout_weight="1"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"/>
 
-			<Space
-				android:layout_weight="1"
-				android:layout_width="wrap_content"
-				android:layout_height="match_parent"/>
+		<View
+			android:id="@+id/circle0"
+			android:background="@drawable/circle_green"
+			android:layout_width="100dp"
+			android:layout_height="100dp" />
 
-			<View
-				android:id="@+id/circle0"
-				android:background="@drawable/circle_green"
-				android:layout_width="100dp"
-				android:layout_height="100dp" />
+		<Space
+			android:layout_weight="1"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"/>
 
-			<Space
-				android:layout_weight="1"
-				android:layout_width="wrap_content"
-				android:layout_height="match_parent"/>
+		<View
+			android:id="@+id/circle1"
+			android:background="@drawable/circle_blue"
+			android:layout_width="100dp"
+			android:layout_height="100dp" />
 
-			<View
-				android:id="@+id/circle1"
-				android:background="@drawable/circle_blue"
-				android:layout_width="100dp"
-				android:layout_height="100dp" />
+		<Space
+			android:layout_weight="1"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"/>
 
-			<Space
-				android:layout_weight="1"
-				android:layout_width="wrap_content"
-				android:layout_height="match_parent"/>
+		<View
+			android:id="@+id/circle2"
+			android:background="@drawable/circle_red"
+			android:layout_width="100dp"
+			android:layout_height="100dp" />
 
-			<View
-				android:id="@+id/circle2"
-				android:background="@drawable/circle_red"
-				android:layout_width="100dp"
-				android:layout_height="100dp" />
-
-			<Space
-				android:layout_weight="1"
-				android:layout_width="wrap_content"
-				android:layout_height="match_parent"/>
-
-		</LinearLayout>
-
-		<LinearLayout
-			android:orientation="horizontal"
-			android:clipChildren="false"
-			android:clipToPadding="false"
-			android:layout_marginTop="25dp"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
-
-			<Space
-				android:layout_weight="1"
-				android:layout_width="wrap_content"
-				android:layout_height="match_parent"/>
-
-			<View
-				android:id="@+id/circle3"
-				android:background="@drawable/circle_orange"
-				android:layout_width="100dp"
-				android:layout_height="100dp" />
-
-			<Space
-				android:layout_weight="1"
-				android:layout_width="wrap_content"
-				android:layout_height="match_parent"/>
-
-			<View
-				android:id="@+id/circle4"
-				android:background="@drawable/circle_purple"
-				android:layout_width="100dp"
-				android:layout_height="100dp" />
-
-			<Space
-				android:layout_weight="1"
-				android:layout_width="wrap_content"
-				android:layout_height="match_parent"/>
-
-			<View
-				android:id="@+id/circle5"
-				android:background="@drawable/circle_gray"
-				android:layout_width="100dp"
-				android:layout_height="100dp" />
-
-			<Space
-				android:layout_weight="1"
-				android:layout_width="wrap_content"
-				android:layout_height="match_parent"/>
-
-		</LinearLayout>
+		<Space
+			android:layout_weight="1"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"/>
 
 	</LinearLayout>
 
-</RelativeLayout>
+	<LinearLayout
+		android:orientation="horizontal"
+		android:clipChildren="false"
+		android:clipToPadding="false"
+		android:layout_marginTop="25dp"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<Space
+			android:layout_weight="1"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"/>
+
+		<View
+			android:id="@+id/circle3"
+			android:background="@drawable/circle_orange"
+			android:layout_width="100dp"
+			android:layout_height="100dp" />
+
+		<Space
+			android:layout_weight="1"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"/>
+
+		<View
+			android:id="@+id/circle4"
+			android:background="@drawable/circle_purple"
+			android:layout_width="100dp"
+			android:layout_height="100dp" />
+
+		<Space
+			android:layout_weight="1"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"/>
+
+		<View
+			android:id="@+id/circle5"
+			android:background="@drawable/circle_gray"
+			android:layout_width="100dp"
+			android:layout_height="100dp" />
+
+		<Space
+			android:layout_weight="1"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"/>
+
+	</LinearLayout>
+
+</LinearLayout>

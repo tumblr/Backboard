@@ -70,6 +70,8 @@ task checkstyle(type: Checkstyle) {
     classpath = files()
 }
 
+check.dependsOn 'checkstyle'
+
 android.libraryVariants.all { variant ->
     task("javadoc${variant.name}", type: Javadoc) {
         source = variant.javaCompile.source

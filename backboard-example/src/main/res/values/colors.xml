@@ -11,15 +11,6 @@
 
 	<color name="white">#ffffff</color>
 
-	<array name="bugs">
-		<item>@color/debug_green</item>
-		<item>@color/debug_red</item>
-		<item>@color/debug_purple</item>
-		<item>@color/debug_orange</item>
-		<item>@color/debug_blue</item>
-		<item>@color/debug_gray</item>
-	</array>
-
 	<array name="circles">
 		<item>@drawable/circle_green</item>
 		<item>@drawable/circle_red</item>

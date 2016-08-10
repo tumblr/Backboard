@@ -1,5 +1,6 @@
 package com.tumblr.backboard.example;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -191,6 +192,7 @@ public class ExplosionFragment extends Fragment {
 
 		mRootView.setOnTouchListener(new View.OnTouchListener() {
 			@Override
+			@SuppressLint("ClickableViewAccessibility")
 			public boolean onTouch(View v, MotionEvent event) {
 				switch (event.getAction()) {
 				case MotionEvent.ACTION_DOWN:

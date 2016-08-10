@@ -1,5 +1,6 @@
 package com.tumblr.backboard.imitator;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.view.MotionEvent;
 import android.view.View;
@@ -50,15 +51,15 @@ public class ToggleImitator extends EventImitator implements View.OnTouchListene
 	}
 
 	@Override
+	@SuppressLint("ClickableViewAccessibility")
 	public void imitate(final View view, @NonNull final MotionEvent event) {
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 			constrain(event);
 			break;
 
-		case MotionEvent.ACTION_UP:
-			view.performClick();
 		case MotionEvent.ACTION_CANCEL:
+		case MotionEvent.ACTION_UP:
 			release(event);
 			break;
 
