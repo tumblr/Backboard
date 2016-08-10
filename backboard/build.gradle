@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/tumblr/Backboard'
     gitUrl = 'https://github.com/tumblr/Backboard.git'
 
-    libraryVersion = '0.1.0'
+    libraryVersion = '0.1.1'
 
     developerId = 'ericleong'
     developerName = 'Eric Leong'
@@ -32,8 +32,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 100
-        versionName "0.1.0"
+        versionCode 101
+        versionName "0.1.1"
     }
     buildTypes {
         release {
