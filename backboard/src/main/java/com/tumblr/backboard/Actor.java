@@ -639,9 +639,6 @@ public final class Actor {
 							> Math.pow(MAX_CLICK_DISTANCE, 2);
 
 					v.setPressed(!removeClickState);
-					if (!removeClickState) {
-						v.performClick();
-					}
 
 					return removeClickState;
 				} else {
