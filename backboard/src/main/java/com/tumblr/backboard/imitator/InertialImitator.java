@@ -11,7 +11,7 @@ import com.tumblr.backboard.MotionProperty;
  * A {@link com.tumblr.backboard.imitator.ConstrainedMotionImitator} that moves freely when the
  * user is not dragging it. It copies the {@link com.facebook.rebound.SpringConfig} in
  * {@link #setSpring(com.facebook.rebound.Spring)} to use when the user is dragging.
- * <p/>
+ * <p>
  * Created by ericleong on 11/6/14.
  */
 public class InertialImitator extends ConstrainedMotionImitator implements SpringListener {

@@ -9,7 +9,7 @@ import com.facebook.rebound.Spring;
  * Toggle between two {@link com.facebook.rebound.Spring} states depending on whether or not the user is touching the
  * screen. When the user presses, {@link #constrain(android.view.MotionEvent)} is called and the active value is set.
  * When the user releases, {@link #release(android.view.MotionEvent)} is called and the rest value is set.
- * <p/>
+ * <p>
  * Created by ericleong on 5/21/14.
  */
 public class ToggleImitator extends EventImitator implements View.OnTouchListener {
@@ -52,17 +52,17 @@ public class ToggleImitator extends EventImitator implements View.OnTouchListene
 	@Override
 	public void imitate(final View view, @NonNull final MotionEvent event) {
 		switch (event.getAction()) {
-			case MotionEvent.ACTION_DOWN:
-				constrain(event);
-				break;
+		case MotionEvent.ACTION_DOWN:
+			constrain(event);
+			break;
 
-			case MotionEvent.ACTION_UP:
-				view.performClick();
-			case MotionEvent.ACTION_CANCEL:
-				release(event);
-				break;
+		case MotionEvent.ACTION_UP:
+			view.performClick();
+		case MotionEvent.ACTION_CANCEL:
+			release(event);
+			break;
 
-			default:
+		default:
 		}
 	}
 }

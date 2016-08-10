@@ -8,7 +8,7 @@ import com.tumblr.backboard.MotionProperty;
 
 /**
  * Maps a user's motion to a {@link android.view.View} via a {@link com.facebook.rebound.Spring}.
- * <p/>
+ * <p>
  * Created by ericleong on 5/13/14.
  */
 public class MotionImitator extends EventImitator {

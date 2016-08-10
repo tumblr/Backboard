@@ -6,7 +6,7 @@ import com.tumblr.backboard.MotionProperty;
 
 /**
  * Constrains the motion between the minimum and maximum values.
- * <p/>
+ * <p>
  * Created by ericleong on 10/9/14.
  */
 public class ConstrainedMotionImitator extends MotionImitator {

@@ -4,13 +4,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.MotionEvent;
 import android.view.View;
-
 import com.facebook.rebound.Spring;
 
 /**
  * Maps a {@link android.view.MotionEvent} to a {@link com.facebook.rebound.Spring},
  * although it does not pick a property to map.
- * <p/>
+ * <p>
  * Created by ericleong on 5/30/14.
  */
 public abstract class EventImitator extends Imitator {

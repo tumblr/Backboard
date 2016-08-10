@@ -10,7 +10,7 @@ import com.facebook.rebound.SpringListener;
 /**
  * Directly maps the motion of a {@link com.facebook.rebound.Spring} to a
  * {@link android.util.Property} on a {@link android.view.View}.
- * <p/>
+ * <p>
  * Created by ericleong on 5/19/14.
  */
 public class Performer implements SpringListener {

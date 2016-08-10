@@ -6,10 +6,10 @@ import com.facebook.rebound.SpringListener;
 
 /**
  * Allows a {@link com.facebook.rebound.Spring} to imitate another {@link com.facebook.rebound.Spring}.
- * <p/>
+ * <p>
  * The default implementation sets the end value of the attached Spring to be the same as the
  * current value of the couple it is imitating.
- * <p/>
+ * <p>
  * Created by ericleong on 5/16/14.
  */
 public class SpringImitator extends Imitator implements SpringListener {

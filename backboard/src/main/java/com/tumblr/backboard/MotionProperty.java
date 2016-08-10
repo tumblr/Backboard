@@ -10,7 +10,7 @@ import android.view.View;
  * Used by {@link com.tumblr.backboard.Actor} and
  * {@link com.tumblr.backboard.imitator.MotionImitator} to determine which axis to use when mapping
  * from a {@link android.view.MotionEvent}.
- * <p/>
+ * <p>
  * Created by ericleong on 5/29/14.
  */
 public enum MotionProperty {

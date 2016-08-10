@@ -21,10 +21,10 @@ import java.util.List;
  * Coordinates the relationship between {@link com.tumblr.backboard.imitator.MotionImitator}s,
  * {@link com.facebook.rebound.Spring}s, and {@link com.tumblr.backboard.performer.Performer}s on a
  * single {@link android.view.View}.
- * <p/>
+ * <p>
  * This primarily exists to manage the {@link android.view.View.OnTouchListener} on the
  * {@link android.view.View}.
- * <p/>
+ * <p>
  * Created by ericleong on 5/20/14.
  */
 public final class Actor {

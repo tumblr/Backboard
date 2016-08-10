@@ -9,7 +9,7 @@ import com.facebook.rebound.SpringUtil;
 /**
  * Maps the motion of a {@link com.facebook.rebound.Spring} to a
  * {@link android.util.Property} on a {@link android.view.View}.
- * <p/>
+ * <p>
  * Created by ericleong on 5/6/14.
  */
 public class MapPerformer extends Performer {
