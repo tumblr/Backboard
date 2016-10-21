@@ -1,6 +1,10 @@
+machine:
+  java:
+    version: oraclejdk8
+
 test:
   override:
-    - ./gradlew check
+    - ./gradlew --info check
 
 general:
   branches:
