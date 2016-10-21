@@ -6,9 +6,9 @@ buildscript {
     }
 	dependencies {
 
-		classpath 'com.android.tools.build:gradle:2.1.2'
+		classpath 'com.android.tools.build:gradle:2.2.2'
 		classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
-		classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3'
+		classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
 
 		// NOTE - this is referencing a local variable that you must set in your gradle.properties
 		// in the top level folder.
