@@ -35,10 +35,10 @@ allprojects {
 }
 
 ext {
-	buildToolsVersion = "23.0.2"
-	compileSdkVersion = 23
+	buildToolsVersion = "24.0.3"
+	compileSdkVersion = 24
 	minSdkVersion = 14
-	targetSdkVersion = 23
-	supportAnnotation = "com.android.support:support-annotations:23.0.1"
+	targetSdkVersion = 24
+	supportAnnotation = "com.android.support:support-annotations:24.2.1"
 	facebookRebound = "com.facebook.rebound:rebound:0.3.8"
 }
