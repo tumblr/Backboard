@@ -30,7 +30,7 @@ Update your `build.gradle` with
 ```groovy
 dependencies {
    compile 'com.facebook.rebound:rebound:0.3.8'
-   compile 'com.tumblr:backboard:0.1.0'
+   compile 'com.tumblr:backboard:0.1.0@aar'
 }
 ```
 
