@@ -12,6 +12,10 @@ A motion-driven animation framework for Android.
 
 [Javadoc](http://tumblr.github.io/Backboard/javadoc/)
 
+![follow animation](../screenshots/screenshots/follow.gif?raw=true)
+![bloom animation](../screenshots/screenshots/bloom.gif?raw=true)
+![scale animation](../screenshots/screenshots/scale.gif?raw=true)
+
 ## Table of Contents
 
 * [Usage](#usage)
