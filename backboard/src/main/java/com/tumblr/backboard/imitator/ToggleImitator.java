@@ -43,6 +43,7 @@ public class ToggleImitator extends EventImitator implements View.OnTouchListene
 		return mActiveValue;
 	}
 
+	@SuppressLint("ClickableViewAccessibility")
 	@Override
 	public boolean onTouch(final View v, @NonNull final MotionEvent event) {
 		imitate(v, event);
