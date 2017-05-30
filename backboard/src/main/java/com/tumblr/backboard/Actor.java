@@ -400,9 +400,10 @@ public final class Actor {
 		 * 		the {@link android.view.View} property to animate
 		 * @return the builder for chaining
 		 */
+		@SafeVarargs
 		@NonNull
-		public Builder addMotion(@NonNull final EventImitator eventImitator,
-		                         @NonNull final Property<View, Float>... viewProperties) {
+		public final Builder addMotion(@NonNull final EventImitator eventImitator,
+		                               @NonNull final Property<View, Float>... viewProperties) {
 			final Performer[] performers = new Performer[viewProperties.length];
 
 			for (int i = 0; i < viewProperties.length; i++) {
