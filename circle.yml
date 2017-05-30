@@ -10,3 +10,18 @@ general:
   branches:
     ignore:
       - gh-pages
+
+dependencies:
+  pre:
+    # Android SDK Platform 25
+    - if [ ! -d "/usr/local/android-sdk-linux/platforms/android-25" ]; then echo y | android update sdk --no-ui --all --filter "android-25"; fi
+    # Android SDK Build-tools, revision 25.0.3
+    - if [ ! -d "/usr/local/android-sdk-linux/build-tools/25.0.3" ]; then echo y | android update sdk --no-ui --all --filter "build-tools-25.0.3"; fi
+    # Android Support Repository, revision 39 / Local Maven repository for Support Libraries
+    - if [ ! -d "/usr/local/android-sdk-linux/extras/android/m2repository/com/android/support/design/25.0.3" ]; then echo y | android update sdk --no-ui --all --filter "extra-android-m2repository"; fi
+
+
+  cache_directories:
+    - /usr/local/android-sdk-linux/platforms/android-25
+    - /usr/local/android-sdk-linux/build-tools/25.0.3
+    - /usr/local/android-sdk-linux/extras/android/m2repository
