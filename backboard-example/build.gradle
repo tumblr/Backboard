@@ -24,7 +24,7 @@ android {
 }
 
 dependencies {
-    compile rootProject.ext.facebookRebound
-	compile project(':backboard')
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.facebookRebound
+    implementation project(':backboard')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }

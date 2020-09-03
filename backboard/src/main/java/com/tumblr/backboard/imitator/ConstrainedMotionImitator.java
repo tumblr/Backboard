@@ -1,7 +1,9 @@
 package com.tumblr.backboard.imitator;
 
-import android.support.annotation.NonNull;
 import android.view.MotionEvent;
+
+import androidx.annotation.NonNull;
+
 import com.tumblr.backboard.MotionProperty;
 
 /**

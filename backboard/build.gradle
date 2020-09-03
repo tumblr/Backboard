@@ -41,13 +41,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
-}
 
-dependencies {
-    provided rootProject.ext.facebookRebound
-    compile rootProject.ext.supportAnnotation
-
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    libraryVariants.all { variant ->
+        task("javadoc${variant.name}", type: Javadoc) {
+            source = variant.javaCompile.source
+            ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+            classpath = files(android.sourceSets.main.java.srcDirs) + files(ext.androidJar)
+            options.links("http://docs.oracle.com/javase/7/docs/api/")
+            options.linksOffline("http://developer.android.com/reference/", "${android.sdkDirectory}/docs/reference/")
+            options.links("http://facebook.github.io/rebound/javadocs/")
+            exclude '**/BuildConfig.java'
+            exclude '**/R.java'
+        }
+    }
 }
 
 checkstyle {
@@ -72,25 +78,19 @@ task checkstyle(type: Checkstyle) {
 
 check.dependsOn 'checkstyle'
 
-android.libraryVariants.all { variant ->
-    task("javadoc${variant.name}", type: Javadoc) {
-        source = variant.javaCompile.source
-        ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
-        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
-        options.links("http://docs.oracle.com/javase/7/docs/api/")
-        options.linksOffline("http://developer.android.com/reference/", "${android.sdkDirectory}/docs/reference/")
-        options.links("http://facebook.github.io/rebound/javadocs/")
-        exclude '**/BuildConfig.java'
-        exclude '**/R.java'
-    }
-}
-
 // disable insane, build-breaking doclint tool in Java 8
 if (JavaVersion.current().isJava8Compatible()) {
     tasks.withType(Javadoc) {
         //noinspection SpellCheckingInspection
         options.addStringOption('Xdoclint:none', '-quiet')
     }
+}
+
+dependencies {
+    implementation rootProject.ext.facebookRebound
+    implementation rootProject.ext.supportAnnotation
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'

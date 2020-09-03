@@ -1,8 +1,10 @@
 package com.tumblr.backboard.performer;
 
-import android.support.annotation.NonNull;
 import android.util.Property;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+
 import com.facebook.rebound.Spring;
 import com.facebook.rebound.SpringUtil;
 
