@@ -2,11 +2,12 @@
 
 buildscript {
     repositories {
+		google()
 		jcenter()
     }
 	dependencies {
 
-		classpath 'com.android.tools.build:gradle:2.2.2'
+		classpath 'com.android.tools.build:gradle:4.0.1'
 		classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
 		classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
 
@@ -30,15 +31,16 @@ buildscript {
 
 allprojects {
     repositories {
+		google()
 		jcenter()
     }
 }
 
 ext {
-	buildToolsVersion = "23.0.2"
-	compileSdkVersion = 23
+	buildToolsVersion = "30.0.2"
+	compileSdkVersion = 28
 	minSdkVersion = 14
-	targetSdkVersion = 23
-	supportAnnotation = "com.android.support:support-annotations:23.0.1"
+	targetSdkVersion = 28
+	supportAnnotation = 'androidx.annotation:annotation:1.0.0'
 	facebookRebound = "com.facebook.rebound:rebound:0.3.8"
 }

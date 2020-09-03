@@ -1,7 +1,9 @@
 package com.tumblr.backboard.imitator;
 
-import android.support.annotation.NonNull;
 import android.view.MotionEvent;
+
+import androidx.annotation.NonNull;
+
 import com.facebook.rebound.Spring;
 import com.facebook.rebound.SpringConfig;
 import com.facebook.rebound.SpringListener;

@@ -1,10 +1,11 @@
 package com.tumblr.backboard;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Property;
 import android.view.MotionEvent;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * Used by {@link com.tumblr.backboard.Actor} and
