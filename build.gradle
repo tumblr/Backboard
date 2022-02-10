@@ -6,10 +6,6 @@ buildscript {
 		jcenter()
     }
 	dependencies {
-
-		classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
-		classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
-
 		// NOTE - this is referencing a local variable that you must set in your gradle.properties
 		// in the top level folder.
 		//
