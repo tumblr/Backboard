@@ -35,5 +35,5 @@ steps:
       - *docker-container
     command: |
       ./gradlew \
-          prepareToPublishToS3 $(prepare_to_publish_to_s3_params) \
-          publish
+          :backboard:prepareToPublishToS3 $(prepare_to_publish_to_s3_params) \
+          :backboard:publish
