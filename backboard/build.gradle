@@ -1,5 +1,7 @@
-apply plugin: 'com.android.library'
-apply plugin: 'checkstyle'
+plugins {
+    id "com.android.library"
+    id "checkstyle"
+}
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
