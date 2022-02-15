@@ -1,6 +1,7 @@
 plugins {
     id "com.android.library"
     id "checkstyle"
+    id "com.automattic.android.publish-to-s3"
 }
 
 android {
@@ -9,8 +10,6 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 102
-        versionName "0.1.2"
     }
     buildTypes {
         release {
@@ -65,4 +64,20 @@ dependencies {
     implementation rootProject.ext.supportAnnotation
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            BackboardPublication(MavenPublication) {
+                from components.release
+
+                groupId "com.tumblr"
+                artifactId "backboard"
+                artifact tasks.named("androidSourcesJar") // This task is added by 'publish-to-s3' plugin
+                artifact tasks.named("javadocrelease")
+                // version is set by 'publish-to-s3' plugin
+            }
+        }
+   }
 }
