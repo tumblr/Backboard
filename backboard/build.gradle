@@ -27,6 +27,12 @@ android {
             exclude '**/R.java'
         }
     }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
 checkstyle {
@@ -74,8 +80,6 @@ project.afterEvaluate {
 
                 groupId "com.tumblr"
                 artifactId "backboard"
-                artifact tasks.named("androidSourcesJar") // This task is added by 'publish-to-s3' plugin
-                artifact tasks.named("javadocrelease")
                 // version is set by 'publish-to-s3' plugin
             }
         }
