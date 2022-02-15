@@ -21,7 +21,7 @@ android {
 
     libraryVariants.all { variant ->
         task("javadoc${variant.name}", type: Javadoc) {
-            source = variant.javaCompile.source
+            source = android.sourceSets.main.java.srcDirs
             ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
             classpath = files(android.sourceSets.main.java.srcDirs) + files(ext.androidJar)
             options.links("http://docs.oracle.com/javase/7/docs/api/")
