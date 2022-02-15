@@ -6,9 +6,9 @@ allprojects {
 }
 
 ext {
-	compileSdkVersion = 28
-	minSdkVersion = 14
-	targetSdkVersion = 28
-	supportAnnotation = 'androidx.annotation:annotation:1.0.0'
-	facebookRebound = "com.facebook.rebound:rebound:0.3.8"
+    compileSdkVersion = 31
+    minSdkVersion = 14
+    targetSdkVersion = 31
+    supportAnnotation = 'androidx.annotation:annotation:1.0.0'
+    facebookRebound = "com.facebook.rebound:rebound:0.3.8"
 }
