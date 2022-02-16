@@ -20,17 +20,9 @@ steps:
       - "**/build/reports/lint-results**.*"
       - "**/build/reports/checkstyle/checkstyle.*"
 
-  - label: "Test"
-    key: "test"
-    plugins:
-      - *docker-container
-    command: |
-      ./gradlew test
-
   - label: "Publish to S3 Maven"
     depends_on:
       - "lint_and_checkstyle"
-      - "test"
     plugins:
       - *docker-container
     command: |
