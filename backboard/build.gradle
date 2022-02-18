@@ -1,5 +1,7 @@
-apply plugin: 'com.android.library'
-apply plugin: 'checkstyle'
+plugins {
+    id "com.android.library"
+    id "checkstyle"
+}
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -19,12 +21,9 @@ android {
 
     libraryVariants.all { variant ->
         task("javadoc${variant.name}", type: Javadoc) {
-            source = variant.javaCompile.source
-            ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
-            classpath = files(android.sourceSets.main.java.srcDirs) + files(ext.androidJar)
+            source android.sourceSets.main.java.srcDirs
+            classpath = variant.javaCompileProvider.get().classpath + files(project.android.getBootClasspath()) + files("$buildDir/intermediates/classes/${variant.name}")
             options.links("http://docs.oracle.com/javase/7/docs/api/")
-            options.linksOffline("http://developer.android.com/reference/", "${android.sdkDirectory}/docs/reference/")
-            options.links("http://facebook.github.io/rebound/javadocs/")
             exclude '**/BuildConfig.java'
             exclude '**/R.java'
         }
