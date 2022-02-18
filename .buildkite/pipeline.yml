@@ -1,0 +1,31 @@
+common-params:
+  &docker-container
+  docker#v3.8.0:
+    image: "public.ecr.aws/automattic/android-build-image:v1.1.0"
+    propagate-environment: true
+    environment:
+      # DO NOT MANUALLY SET THESE VALUES!
+      # They are passed from the Buildkite agent to the Docker container
+      - "AWS_ACCESS_KEY"
+      - "AWS_SECRET_KEY"
+
+steps:
+  - label: "Lint & Checkstyle"
+    key: "lint_and_checkstyle"
+    plugins:
+      - *docker-container
+    command: |
+      ./gradlew lintRelease checkstyle
+    artifact_paths:
+      - "**/build/reports/lint-results**.*"
+      - "**/build/reports/checkstyle/checkstyle.*"
+
+  - label: "Publish to S3 Maven"
+    depends_on:
+      - "lint_and_checkstyle"
+    plugins:
+      - *docker-container
+    command: |
+      ./gradlew \
+          :backboard:prepareToPublishToS3 $(prepare_to_publish_to_s3_params) \
+          :backboard:publish
