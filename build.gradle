@@ -6,11 +6,6 @@ buildscript {
 		jcenter()
     }
 	dependencies {
-
-		classpath 'com.android.tools.build:gradle:4.0.1'
-		classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
-		classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
-
 		// NOTE - this is referencing a local variable that you must set in your gradle.properties
 		// in the top level folder.
 		//
@@ -24,7 +19,7 @@ buildscript {
 			classpath project.ext.localBuildTools
 		} else {
 			// Fallback to newest build tools if property not set
-			classpath 'com.android.tools.build:gradle:2.1.3'
+			classpath 'com.android.tools.build:gradle:7.1.1'
 		}
 	}
 }
@@ -37,7 +32,6 @@ allprojects {
 }
 
 ext {
-	buildToolsVersion = "30.0.2"
 	compileSdkVersion = 28
 	minSdkVersion = 14
 	targetSdkVersion = 28
