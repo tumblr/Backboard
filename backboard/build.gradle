@@ -27,12 +27,6 @@ android {
             exclude '**/R.java'
         }
     }
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
 }
 
 checkstyle {
